@@ -1,0 +1,21 @@
+[Unit]
+Description=Raspberry Pi Volume MQTT Service
+After=network-online.target sound.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User={{user_id}}
+Group=audio
+
+Environment=XDG_RUNTIME_DIR=/run/user/1000
+Environment=PULSE_RUNTIME_PATH=/run/user/1000/pulse
+
+ExecStart=/usr/bin/python {{SCRIPT_PATH}}
+WorkingDirectory={{WORKING_DIR}}
+
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
