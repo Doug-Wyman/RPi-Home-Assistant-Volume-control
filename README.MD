@@ -7,12 +7,6 @@
 	<META NAME="CREATED" CONTENT="0;0">
 	<META NAME="CHANGEDBY" CONTENT="Douglas Wyman">
 	<META NAME="CHANGED" CONTENT="20260113;17085383">
-	<STYLE TYPE="text/css">
-	<!--
-		P { color: #ffffff }
-		H1 { color: #ffffff }
-	-->
-	</STYLE>
 </HEAD>
 <BODY LANG="en-US" TEXT="#ffffff" BGCOLOR="#000000" DIR="LTR">
 <H1 ALIGN=CENTER>MQTT Alsa Volume control for Home Assistant</H1>
@@ -51,4 +45,5 @@ and created the entity.
 <P ALIGN=CENTER>Suggestions branches or anything to improve this is
 welcome.</P>
 </BODY>
+
 </HTML>
