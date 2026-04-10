@@ -1,0 +1,25 @@
+[Unit]
+Description=Raspberry Pi Volume MQTT Service
+After=network-online.target systemd-resolved.service systemd-user-sessions.service sound.target graphical.target
+
+Wants=network-online.target graphical.target
+
+[Service]
+Type=simple
+User=dj
+Group=audio
+
+Environment=XDG_RUNTIME_DIR=/run/user/1000
+Environment=PULSE_RUNTIME_PATH=/run/user/1000/pulse
+
+# Wait for MQTT broker to respond
+ExecStartPre=/bin/sh -c 'until ping -c1 -W1 192.168.0.109; do sleep 1; done'
+
+ExecStart=/home/dj/.venvs/rpi-volume/bin/python /home/dj/volume/rpi_vol_control.py
+WorkingDirectory=/home/dj/volume
+
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
